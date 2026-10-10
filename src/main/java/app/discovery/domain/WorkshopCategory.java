@@ -1,0 +1,6 @@
+package app.discovery.domain;
+
+public enum WorkshopCategory {
+  POTTERY, COOKING, BAKING, GARDENING, GARDEN_TOUR, ART, CRAFT, KNITTING,
+  CHOCOLATE, DANCE, MUSIC, SEASONAL, PHOTOGRAPHY, WELLNESS, OTHER
+}

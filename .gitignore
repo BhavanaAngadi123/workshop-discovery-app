@@ -1,0 +1,10 @@
+target/
+.build/
+*.log
+.DS_Store
+posters/
+*.class
+src/main/frontend/
+package.json
+package-lock.json
+node_modules/
