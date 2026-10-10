@@ -336,13 +336,13 @@ function filtered(){
     return true;
   }).sort((a,b)=> b.rating-a.rating);
 }
-function wcard(w){
+function wcard(w,i){
   const s = w.slots[0];
-  return `<a class="wcard grain" data-go="#/w/${w.id}" href="#/w/${w.id}">
+  return `<a class="wcard grain ${tilt(i)}" data-go="#/w/${w.id}" href="#/w/${w.id}">
     <div class="wcard-art">${scene(w.motif, w.title)}
       <span class="price-badge">${money(w.price)}</span>
       <span class="dist-badge">◈ ${w.dist} mi</span>
-      ${w.isNew?'<span class="new-badge">New</span>':''}
+      ${stickers(w)}
     </div>
     <div class="wcard-body">
       <div class="wcard-cat">${w.cat} · ${w.dur}</div>
@@ -351,6 +351,44 @@ function wcard(w){
       <div class="wcard-next"><span class="dot"></span><span>Next: <b>${s.d} · ${s.t}</b> — ${s.left} spots left</span></div>
     </div></a>`;
 }
+
+/* ---------- playful bits: stickers, tilt, rails, confetti ---------- */
+function tilt(i){ return ((i||0)%2) ? 'tilt-r' : 'tilt-l'; }
+function stickers(w){
+  const s=w.slots[0]; const out=[];
+  if(s.left<=3) out.push('<span class="sticker hot">🔥 Selling fast</span>');
+  else if(w.isNew) out.push('<span class="sticker new">✨ New</span>');
+  if(w.tags.includes('date idea')) out.push('<span class="sticker date">💛 Date-night fave</span>');
+  else if(w.tags.includes('weekend')) out.push('<span class="sticker wknd">🎉 Weekend pick</span>');
+  const two=out.slice(0,2);
+  return two.length?`<div class="stickers">${two.join('')}</div>`:'';
+}
+function railCard(w,i){
+  const s=w.slots[0];
+  return `<a class="rcard ${tilt(i)}" data-go="#/w/${w.id}" href="#/w/${w.id}">
+    <span class="rcard-art">${scene(w.motif,w.title)}${stickers(w)}</span>
+    <span class="rcard-body"><span class="rcard-t">${esc(w.title)}</span>
+    <span class="rcard-m">${money(w.price)} · ${w.dur} · <b style="color:var(--clay-deep)">${s.left} left</b></span></span>
+  </a>`;
+}
+function hotWeekend(list){
+  return list.filter(w=>w.tags.includes('weekend'))
+    .sort((a,b)=>a.slots[0].left-b.slots[0].left).slice(0,6);
+}
+function confettiBurst(){
+  const c=document.getElementById('confetti'); if(!c) return;
+  const colors=['#D14D1F','#F2A413','#B23A5E','#2F7D6B','#6B3A5E','#FFFDF6'];
+  let html='';
+  for(let i=0;i<56;i++){
+    const x=(Math.random()*100).toFixed(1), d=(1.1+Math.random()*1.1).toFixed(2), dl=(Math.random()*0.6).toFixed(2);
+    const col=colors[i%colors.length], rr=((Math.random()*360)|0)+'deg', sz=6+((Math.random()*7)|0);
+    const round=Math.random()>0.55?'50%':'2px';
+    html+='<i style="left:'+x+'%;width:'+sz+'px;height:'+(round==='50%'?sz:Math.round(sz*0.55))+'px;background:'+col+';border-radius:'+round+';--rr:'+rr+';animation-duration:'+d+'s;animation-delay:'+dl+'s"></i>';
+  }
+  c.innerHTML=html;
+  setTimeout(()=>{ const cc=document.getElementById('confetti'); if(cc) cc.innerHTML=''; }, 3400);
+}
+function bindDone(){ confettiBurst(); }
 
 /* ---------- DISCOVER ---------- */
 function vDiscover(){
@@ -363,9 +401,18 @@ function vDiscover(){
     <div><div class="brandname">Hearth <em>&</em> Hand</div><div class="tagline">Workshops near you</div></div>
   </div></div>
   <div class="hero">
-    <h1>${greet}.<br>Make something <span class="accent">with your hands</span> this weekend.</h1>
-    <p>Every listing shows price, timings &amp; what&rsquo;s included upfront. No &ldquo;DM for price&rdquo; — ever.</p>
+    <div class="doodles" aria-hidden="true">
+      <svg class="doodle d1" width="30" height="30" viewBox="0 0 30 30"><path d="M15 2l2.6 8.4L26 13l-8.4 2.6L15 24l-2.6-8.4L4 13l8.4-2.6z" fill="#F2A413"/></svg>
+      <svg class="doodle d2" width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="6" fill="none" stroke="#B23A5E" stroke-width="3"/></svg>
+      <svg class="doodle d3" width="36" height="14" viewBox="0 0 36 14"><path d="M2 10 Q9 2 17 8 T34 6" fill="none" stroke="#2F7D6B" stroke-width="3" stroke-linecap="round"/></svg>
+    </div>
+    <span class="hand-eyebrow">✳ fresh picks for your weekend</span>
+    <h1>${greet}.<br>Go <span class="marker">make something</span><br><span class="accent">with your hands.</span></h1>
+    <p class="sub">Every listing shows price, timings &amp; what&rsquo;s included upfront. No &ldquo;DM for price&rdquo; — ever.</p>
+    <div class="shuffle-row"><button class="shuffle" id="surpriseBtn"><span class="dice">🎲</span> Surprise me</button>
+      <span class="hand" style="font-size:14px;color:var(--muted)">feeling lucky?</span></div>
   </div>
+  <div class="torn" aria-hidden="true"><svg viewBox="0 0 432 26" preserveAspectRatio="none"><path d="M0 26 L0 14 L18 20 L36 10 L54 18 L72 8 L90 18 L108 10 L126 19 L144 9 L162 18 L180 10 L198 19 L216 9 L234 18 L252 10 L270 19 L288 9 L306 18 L324 10 L342 19 L360 9 L378 18 L396 10 L414 19 L432 12 L432 26 Z" fill="#F2A413"/></svg></div>
   <div class="pad" style="padding-top:14px">
     <div class="searchbar"><span style="color:var(--faint);font-size:17px">⌕</span>
       <input id="q" type="search" placeholder="Try &quot;pottery&quot;, &quot;pasta&quot;, &quot;date night&quot;&hellip;" value="${esc(F.q)}" aria-label="Search workshops"></div>
@@ -376,13 +423,18 @@ function vDiscover(){
     </div>
   </div>
   <div class="chips" id="cats">${CATS.map(c=>`<button class="chip${F.cat===c?' on':''}" data-cat="${c}">${c}</button>`).join('')}</div>
+  ${hotWeekend(list).length>1?`<div class="section" style="margin-top:20px">
+    <div class="sec-head" style="padding:0 18px"><h2>🔥 Hot this weekend</h2><span class="hand">swipe →</span></div>
+    <div class="rail">${hotWeekend(list).map((w,i)=>railCard(w,i)).join('')}</div>
+  </div>`:''}
   <a class="season-strip grain" data-go="#/calendar" href="#/calendar" style="text-decoration:none">
     ${scene('pumpkin','Harvest season')}
+    <span class="washi" aria-hidden="true"></span>
     <div class="txt"><h3 class="serif">🍂 Harvest Season is here</h3><p>Pumpkin picking, cider days &amp; autumn crafts — only in October.</p></div>
   </a>
   <div class="section pad" style="padding-top:18px">
-    <div class="sec-head"><h2>${F.cat==='All'?'Near you':F.cat}</h2><span style="font-size:13px;color:var(--muted)">${list.length} workshops</span></div>
-    <div class="cards">${list.length?list.map(wcard).join(''):`<div class="empty"><div class="big">🏺</div><p>No workshops match those filters.<br>Try widening the distance or price.</p></div>`}</div>
+    <div class="sec-head"><h2>${F.cat==='All'?'Near you':F.cat}</h2><span class="hand">tap one, go make →</span></div>
+    <div class="cards">${list.length?list.map(wcard).join(''):`<div class="empty"><div class="big">🏺</div><div class="hand">Hmm, the basket&rsquo;s empty…</div><p>No workshops match those filters.<br>Try loosening one or two.</p></div>`}</div>
   </div>
   <div class="foot-note">Prototype — sample listings for demonstration.<br>Hearth &amp; Hand · Made with clay, flour &amp; yarn</div>`;
 }
@@ -393,6 +445,9 @@ function bindDiscover(){
   document.getElementById('fPrice').addEventListener('change', e=>{F.maxPrice=+e.target.value; rerender();});
   document.getElementById('fDist').addEventListener('change', e=>{F.maxDist=+e.target.value; rerender();});
   document.getElementById('cats').addEventListener('click', e=>{ const c=e.target.closest('[data-cat]'); if(c){F.cat=c.dataset.cat; rerender();} });
+  const sb=document.getElementById('surpriseBtn');
+  if(sb) sb.onclick=()=>{ const w=WORKSHOPS[(Math.random()*WORKSHOPS.length)|0];
+    toast('🎲 The universe chose…'); setTimeout(()=>{ location.hash='#/w/'+w.id; }, 420); };
 }
 
 /* ---------- DETAIL ---------- */
@@ -405,7 +460,7 @@ function vDetail(id){
     <button class="backbtn" data-go="#/discover" aria-label="Back">←</button>
     <div class="topbar-title">${w.cat}</div>
   </div></div>
-  <div class="detail-hero grain">${scene(w.motif, w.title)}<span class="price-badge">${money(w.price)} <span style="font-weight:400;font-size:12px">/ person</span></span></div>
+  <div class="detail-hero grain">${scene(w.motif, w.title)}<span class="price-badge">${money(w.price)} <span style="font-weight:400;font-size:12px">/ person</span></span>${stickers(w)}</div>
   <div class="detail-body">
     <div class="detail-cat">${w.cat} · ${esc(w.area)} · ${w.dist} mi away</div>
     <h1>${esc(w.title)}</h1>
@@ -519,9 +574,10 @@ function vDone(id){
   const s=w.slots[BK.slot], total=w.price*BK.seats;
   const ref='HH-'+Math.random().toString(36).slice(2,7).toUpperCase();
   return `
+  <div class="confetti" id="confetti" aria-hidden="true"></div>
   <div class="topbar"><div class="topbar-in"><div class="topbar-title">You&rsquo;re in!</div></div></div>
   <div class="confirm-hero"><div class="checkring">✓</div>
-    <h1 class="serif" style="font-size:28px">Booking confirmed</h1>
+    <h1 class="serif" style="font-size:29px">Booking confirmed 🎉</h1>
     <p class="lede" style="margin-top:8px">See you at the ${w.cat.toLowerCase()} table, ${esc(BK.name.split(' ')[0]||'maker')}.</p>
     <div class="refcode">${ref}</div>
   </div>
@@ -683,7 +739,7 @@ function vFeed(){
   <div class="pad" style="padding-bottom:0"><p class="lede">Real photos from last weekend&rsquo;s workshops — the <b>social</b> side of learning. <span class="tagpill">📸 ${FEED.length} new</span></p></div>
   <div class="pad"><div class="cards">
     ${FEED.map((p,i)=>{ const w=WORKSHOPS.find(x=>x.id===p.w); return `
-    <article class="post">
+    <article class="post ${tilt(i)}">
       <div class="post-head">${avatar(p.n)}<div><div class="nm">${esc(p.n)}</div><div class="sub">did <b>${esc(w?w.title.split(':')[0]:p.tag)}</b> · ${p.when}</div></div></div>
       <div class="post-art grain">${scene(p.m, p.n+'’s photo')}</div>
       <div class="post-body"><div class="stars">${stars(p.s)}</div><p>${esc(p.t)}</p></div>
@@ -786,7 +842,7 @@ function route(){
   else if(name==='w'){ html=vDetail(arg); tab='discover'; bind=()=>bindDetail(arg); }
   else if(name==='book'){ html=vBook(arg); tab='discover'; bind=()=>bindBook(arg); }
   else if(name==='pay'){ html=vPay(arg); tab='discover'; bind=()=>bindPay(arg); }
-  else if(name==='done'){ html=vDone(arg); tab='discover'; }
+  else if(name==='done'){ html=vDone(arg); tab='discover'; bind=bindDone; }
   else if(name==='feed'){ html=vFeed(); bind=bindFeed; }
   else if(name==='sunny'){ html=vSunny(); bind=bindSunny; }
   else if(name==='calendar'){ html=vCalendar(); bind=bindCalendar; }
