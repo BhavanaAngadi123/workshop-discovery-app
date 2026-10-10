@@ -4,7 +4,7 @@
 /* ============================== SAMPLE DATA ============================== */
 const WORKSHOPS = [
 {
-  id:'pottery-mug', cat:'Pottery', motif:'pottery',
+  id:'pottery-mug', img:'images/pottery-mug.jpg', cat:'Pottery', motif:'pottery',
   title:'Wheel-Thrown Pottery: Your Morning Mug',
   host:'Mud & Meridian Studio', hostSince:'2019', hostBlurb:'A working pottery studio in Union Square run by Priya Nair and Tom Okafor — 14 wheels, one very patient kiln.',
   area:'Somerville', address:'18 Bow St, Union Square, Somerville MA', dist:2.1,
@@ -19,7 +19,7 @@ const WORKSHOPS = [
     {n:'Elena V.',w:'last month',s:4,t:'Great intro. Wheels fill fast so book the morning slot if you can — afternoons get warm. My mug survived the kiln!',m:'pottery3'}]
 },
 {
-  id:'pumpkin-carve', cat:'Seasonal', motif:'pumpkin',
+  id:'pumpkin-carve', img:'images/pumpkin-carve.jpg', cat:'Seasonal', motif:'pumpkin',
   title:'Pumpkin Pick & Carve on the Farm',
   host:'Harvest Hill Farm', hostSince:'2016', hostBlurb:'A family-run farm in Bolton with 40 acres of pumpkins, a cider barn and the friendliest barn cats in Middlesex County.',
   area:'Bolton', address:'140 Harwood Ave, Bolton MA', dist:28,
@@ -33,7 +33,7 @@ const WORKSHOPS = [
     {n:'Sofia M.',w:'2 weeks ago',s:5,t:'Cider is genuinely excellent and they let our toddler "help" carve with the safe tools. We\u2019ll make this a tradition.',m:'pumpkin2'}]
 },
 {
-  id:'pasta', cat:'Food', motif:'pasta',
+  id:'pasta', img:'images/pasta.jpg', cat:'Food', motif:'pasta',
   title:'Handmade Pasta from Scratch',
   host:'Cucina Elena', hostSince:'2020', hostBlurb:'Elena Rossi\u2019s North End kitchen-school — third-generation pasta maker, first-generation teacher, endlessly patient.',
   area:'North End, Boston', address:'112 Salem St, Boston MA', dist:3.4,
@@ -47,7 +47,7 @@ const WORKSHOPS = [
     {n:'Priya S.',w:'3 weeks ago',s:5,t:'Date night upgrade. We laughed the whole time and the recipe cards actually work — made it again at home Sunday.',m:'pasta2'}]
 },
 {
-  id:'sourdough', cat:'Food', motif:'bread',
+  id:'sourdough', img:'images/sourdough.jpg', cat:'Food', motif:'bread',
   title:'Sourdough: From Starter to Loaf',
   host:'Flour & Fern Bakery', hostSince:'2018', hostBlurb:'A Cambridge micro-bakery. Head baker June Park has kept the same starter — "Bubbles" — alive for nine years.',
   area:'Cambridge', address:'7 Inman St, Cambridge MA', dist:4.2,
@@ -61,7 +61,7 @@ const WORKSHOPS = [
     {n:'Rob C.',w:'last month',s:4,t:'Dense with info — take notes. The tasting flight of three loaves at the end is a masterclass by itself.',m:'bread2'}]
 },
 {
-  id:'knit-scarf', cat:'Fiber', motif:'knit',
+  id:'knit-scarf', img:'images/knit-scarf.jpg', cat:'Fiber', motif:'knit',
   title:'Knit Your First Scarf',
   host:'Purl & Loop', hostSince:'2021', hostBlurb:'Jamaica Plain\u2019s cozy yarn shop-caf\u00e9. Owner Bea Fontaine teaches like your favorite aunt — if your aunt had strong opinions about wool.',
   area:'Jamaica Plain', address:'412 Centre St, Jamaica Plain MA', dist:5.1,
@@ -75,7 +75,7 @@ const WORKSHOPS = [
     {n:'Tom H.',w:'2 weeks ago',s:5,t:'Bought this for my wife, stayed for myself. Finished my scarf during the Pats game. 10/10 would purl again.',m:'knit2'}]
 },
 {
-  id:'watercolor', cat:'Art', motif:'paint',
+  id:'watercolor', img:'images/watercolor.jpg', cat:'Art', motif:'paint',
   title:'Watercolor: Autumn Landscapes',
   host:'Atelier Blick', hostSince:'2017', hostBlurb:'Arlington studio of painter Dana Whitfield, whose New England autumns hang in three Boston galleries.',
   area:'Arlington', address:'22 Medford St, Arlington MA', dist:6.8,
@@ -89,7 +89,7 @@ const WORKSHOPS = [
     {n:'Chris B.',w:'last month',s:5,t:'Zero art background, left with something I\u2019m hanging in my office. Small class, lots of 1:1 help.',m:'paint2'}]
 },
 {
-  id:'croissant', cat:'Food', motif:'croissant',
+  id:'croissant', img:'images/croissant.jpg', cat:'Food', motif:'croissant',
   title:'Croissants: Laminate Like Paris',
   host:'Butter Theory', hostSince:'2022', hostBlurb:'South End laminated-dough lab run by ex-Parisian baker Camille Fournier. The smell hits you a block away.',
   area:'South End, Boston', address:'88 Waltham St, Boston MA', dist:3.9,
@@ -103,7 +103,7 @@ const WORKSHOPS = [
     {n:'Sam R.',w:'last month',s:5,t:'Hardest I\u2019ve concentrated in years and the most delicious. My home batch Sunday made my roommates weep.',m:'croissant2'}]
 },
 {
-  id:'salsa', cat:'Dance', motif:'dance',
+  id:'salsa', img:'images/salsa.jpg', cat:'Dance', motif:'dance',
   title:'Beginner Salsa Night',
   host:'Ritmo Dance Co.', hostSince:'2019', hostBlurb:'East Boston\u2019s friendliest dance floor. Instructors Marco & Lucia have taught 3,000+ two-left-footed Bostonians.',
   area:'East Boston', address:'310 Meridian St, East Boston MA', dist:4.5,
@@ -117,7 +117,7 @@ const WORKSHOPS = [
     {n:'Alex G.',w:'3 weeks ago',s:4,t:'Great energy, loud in the best way. Wear shoes that slide — learned that the fun way.',m:'dance2'}]
 },
 {
-  id:'fall-garden', cat:'Garden', motif:'garden',
+  id:'fall-garden', img:'images/fall-garden.jpg', cat:'Garden', motif:'garden',
   title:'Fall Garden: Bulbs & Beds',
   host:'Green Thumb Collective', hostSince:'2015', hostBlurb:'Brookline community gardeners who believe October is the real start of the gardening year.',
   area:'Brookline', address:'45 Netherlands Rd, Brookline MA', dist:5.6,
@@ -131,7 +131,7 @@ const WORKSHOPS = [
     {n:'Dev P.',w:'2 weeks ago',s:4,t:'Hands in soil for two hours = best therapy. Take the cider they offer at the start, not the end.',m:'garden2'}]
 },
 {
-  id:'truffles', cat:'Food', motif:'chocolate',
+  id:'truffles', img:'images/truffles.jpg', cat:'Food', motif:'chocolate',
   title:'Chocolate Truffles & Bonbons',
   host:'Cacao Craft', hostSince:'2020', hostBlurb:'Beacon Hill bean-to-bar studio. Chocolatier Amara Diallo trained in Brussels and temper-tests everything twice.',
   area:'Beacon Hill', address:'14 Charles St, Boston MA', dist:3.1,
@@ -145,7 +145,7 @@ const WORKSHOPS = [
     {n:'Ben O.',w:'last month',s:5,t:'Date night champion. We fought over the salted caramel ones. Book the Friday slot — smaller class.',m:'choc2'}]
 },
 {
-  id:'terrarium', cat:'Garden', motif:'terrarium',
+  id:'terrarium', img:'images/terrarium.jpg', cat:'Garden', motif:'terrarium',
   title:'Build a Living Terrarium',
   host:'Moss & Stone', hostSince:'2021', hostBlurb:'Somerville plant studio specializing in tiny ecosystems. Owner Wren Ito can name every moss.',
   area:'Somerville', address:'92 Highland Ave, Somerville MA', dist:2.4,
@@ -159,7 +159,7 @@ const WORKSHOPS = [
     {n:'Omar H.',w:'3 weeks ago',s:4,t:'Relaxing and weirdly fascinating. Go easy on the water — trust the mister, not your instincts.',m:'terra2'}]
 },
 {
-  id:'pottery-intensive', cat:'Pottery', motif:'pottery2',
+  id:'pottery-intensive', img:'images/pottery-intensive.jpg', cat:'Pottery', motif:'pottery2',
   title:'Two-Day Pottery Intensive',
   host:'Mud & Meridian Studio', hostSince:'2019', hostBlurb:'A working pottery studio in Union Square run by Priya Nair and Tom Okafor — 14 wheels, one very patient kiln.',
   area:'Somerville', address:'18 Bow St, Union Square, Somerville MA', dist:2.1,
@@ -173,7 +173,7 @@ const WORKSHOPS = [
     {n:'Leo M.',w:'2 months ago',s:5,t:'Intense in the best way. By Sunday afternoon I was trimming like I\u2019d done it for years. Hands were wrecked, heart was full.',m:'pottery2'}]
 },
 {
-  id:'wreath', cat:'Seasonal', motif:'wreath',
+  id:'wreath', img:'images/wreath.jpg', cat:'Seasonal', motif:'wreath',
   title:'Winter Wreath: Fresh Greens',
   host:'Green Thumb Collective', hostSince:'2015', hostBlurb:'Brookline community gardeners who believe October is the real start of the gardening year.',
   area:'Brookline', address:'45 Netherlands Rd, Brookline MA', dist:5.6,
@@ -204,9 +204,9 @@ const FEED = [
 ];
 
 const SEASONS = {
- oct:{name:'October', theme:'Harvest Season', sub:'Pumpkins, apples, autumn color — the land is showing off.', motif:'pumpkin'},
- nov:{name:'November', theme:'Hearth & Craft', sub:'Cozy indoor making: clay, wool, chocolate and lamination.', motif:'knit'},
- dec:{name:'December', theme:'Winter Magic', sub:'Wreaths, truffles and gifts made by your own hands.', motif:'wreath'}
+ oct:{name:'October', theme:'Harvest Season', sub:'Pumpkins, apples, autumn color — the land is showing off.', motif:'pumpkin', img:'images/pumpkin-carve.jpg'},
+ nov:{name:'November', theme:'Hearth & Craft', sub:'Cozy indoor making: clay, wool, chocolate and lamination.', motif:'knit', img:'images/knit-scarf.jpg'},
+ dec:{name:'December', theme:'Winter Magic', sub:'Wreaths, truffles and gifts made by your own hands.', motif:'wreath', img:'images/wreath.jpg'}
 };
 
 const CATS = ['All','Pottery','Food','Fiber','Art','Garden','Dance','Seasonal'];
@@ -279,9 +279,19 @@ function scene(key, label){
     `<rect width="800" height="600" filter="url(#gr${key})"/></svg>`;
 }
 
+/* real photography — every workshop ships a cover photo in images/<id>.jpg */
+function photo(w, alt){
+  const src = (w && w.img) || ('images/'+((w && w.id)||'pottery-mug')+'.jpg');
+  return `<img src="${src}" alt="${esc(alt||(w&&w.title)||'workshop photo')}" loading="lazy">`;
+}
+/* motif → representative photo (host-studio generated listings & posters) */
+const MOTIF_IMG = {candle:'images/wreath.jpg', bread:'images/sourdough.jpg', pottery:'images/pottery-mug.jpg',
+  pottery2:'images/pottery-intensive.jpg', knit:'images/knit-scarf.jpg', paint:'images/watercolor.jpg',
+  garden:'images/terrarium.jpg', wreath:'images/wreath.jpg', pumpkin:'images/pumpkin-carve.jpg',
+  dance:'images/salsa.jpg', chocolate:'images/truffles.jpg', terra:'images/terrarium.jpg'};
+
 /* map thumbnail: stylized street map */
-function mapSVG(addr){
-  return `<svg viewBox="0 0 800 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Map">`+
+function mapSVG(addr){  return `<svg viewBox="0 0 800 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Map">`+
   `<rect width="800" height="200" fill="#EDE4D0"/>`+
   `<g stroke="#D8C9AC" stroke-width="14"><path d="M0 60 H800"/><path d="M0 140 H800"/><path d="M180 0 V200"/><path d="M420 0 V200"/><path d="M640 0 V200"/></g>`+
   `<g stroke="#FFFDF7" stroke-width="8"><path d="M0 60 H800"/><path d="M0 140 H800"/><path d="M180 0 V200"/><path d="M420 0 V200"/><path d="M640 0 V200"/></g>`+
@@ -339,7 +349,7 @@ function filtered(){
 function wcard(w,i){
   const s = w.slots[0];
   return `<a class="wcard grain ${tilt(i)}" data-go="#/w/${w.id}" href="#/w/${w.id}">
-    <div class="wcard-art">${scene(w.motif, w.title)}
+    <div class="wcard-art">${photo(w)}
       <span class="price-badge">${money(w.price)}</span>
       <span class="dist-badge">◈ ${w.dist} mi</span>
       ${stickers(w)}
@@ -366,7 +376,7 @@ function stickers(w){
 function railCard(w,i){
   const s=w.slots[0];
   return `<a class="rcard ${tilt(i)}" data-go="#/w/${w.id}" href="#/w/${w.id}">
-    <span class="rcard-art">${scene(w.motif,w.title)}${stickers(w)}</span>
+    <span class="rcard-art">${photo(w)}${stickers(w)}</span>
     <span class="rcard-body"><span class="rcard-t">${esc(w.title)}</span>
     <span class="rcard-m">${money(w.price)} · ${w.dur} · <b style="color:var(--clay-deep)">${s.left} left</b></span></span>
   </a>`;
@@ -428,7 +438,7 @@ function vDiscover(){
     <div class="rail">${hotWeekend(list).map((w,i)=>railCard(w,i)).join('')}</div>
   </div>`:''}
   <a class="season-strip grain" data-go="#/calendar" href="#/calendar" style="text-decoration:none">
-    ${scene('pumpkin','Harvest season')}
+    ${'<img src="images/pumpkin-carve.jpg" alt="Harvest season" loading="lazy">'}
     <span class="washi" aria-hidden="true"></span>
     <div class="txt"><h3 class="serif">🍂 Harvest Season is here</h3><p>Pumpkin picking, cider days &amp; autumn crafts — only in October.</p></div>
   </a>
@@ -460,7 +470,7 @@ function vDetail(id){
     <button class="backbtn" data-go="#/discover" aria-label="Back">←</button>
     <div class="topbar-title">${w.cat}</div>
   </div></div>
-  <div class="detail-hero grain">${scene(w.motif, w.title)}<span class="price-badge">${money(w.price)} <span style="font-weight:400;font-size:12px">/ person</span></span>${stickers(w)}</div>
+  <div class="detail-hero grain">${photo(w)}<span class="price-badge">${money(w.price)} <span style="font-weight:400;font-size:12px">/ person</span></span>${stickers(w)}</div>
   <div class="detail-body">
     <div class="detail-cat">${w.cat} · ${esc(w.area)} · ${w.dist} mi away</div>
     <h1>${esc(w.title)}</h1>
@@ -483,7 +493,7 @@ function vDetail(id){
       <div class="slot-pick" id="slots">${w.slots.map((s,i)=>`<button class="slot${i===BK.slot?' on':''}${s.left===0?' soldout':''}" data-slot="${i}"${s.left===0?' disabled':''}><div class="d">${s.d}</div><div class="t">${s.t}</div><div class="left">${s.left>0?s.left+' spots left':'Sold out'}</div></button>`).join('')}</div>
     </div>
     <div class="section"><div class="sec-head"><h2>Reviews</h2><span style="font-size:13px;color:var(--muted)">${w.rc} total</span></div>
-      ${w.reviews.map(r=>`<div class="review">${avatar(r.n)}<div style="flex:1"><div class="rnm">${esc(r.n)}</div><div class="rmeta"><span class="stars">${stars(r.s)}</span> · ${r.w}</div><p class="txt">${esc(r.t)}</p><div class="rphoto grain">${scene(r.m,r.n+'’s photo')}</div></div></div>`).join('')}
+      ${w.reviews.map(r=>`<div class="review">${avatar(r.n)}<div style="flex:1"><div class="rnm">${esc(r.n)}</div><div class="rmeta"><span class="stars">${stars(r.s)}</span> · ${r.w}</div><p class="txt">${esc(r.t)}</p><div class="rphoto grain">${photo(w, r.n+'’s photo from '+w.title)}</div></div></div>`).join('')}
     </div>
     <div class="section"><div class="sec-head"><h2>About the host</h2></div><p class="lede">${esc(w.hostBlurb)}</p></div>
     <div style="height:110px"></div>
@@ -581,7 +591,7 @@ function vDone(id){
     <p class="lede" style="margin-top:8px">See you at the ${w.cat.toLowerCase()} table, ${esc(BK.name.split(' ')[0]||'maker')}.</p>
     <div class="refcode">${ref}</div>
   </div>
-  <div class="ticket"><div class="t-art grain">${scene(w.motif,w.title)}</div>
+  <div class="ticket"><div class="t-art grain">${photo(w)}</div>
     <div class="t-body">
       <h3 class="serif" style="font-size:18px;margin-bottom:8px">${esc(w.title)}</h3>
       <div class="t-row"><span>When</span><b>${s.d} · ${s.t}</b></div>
@@ -689,14 +699,14 @@ function generateListing(){
 }
 function posterSVG(g){
   const cap = g.title.length>44? g.title.slice(0,44)+'…' : g.title;
+  const img = MOTIF_IMG[g.motif]||'images/pottery-mug.jpg';
   return `<svg viewBox="0 0 600 760" role="img" aria-label="Workshop poster">
-  <defs><linearGradient id="pp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3E2A1C"/><stop offset="1" stop-color="#1E130C"/></linearGradient></defs>
-  <rect width="600" height="760" fill="url(#pp)"/>
-  <circle cx="300" cy="250" r="120" fill="#E8B64C" opacity=".9"/><circle cx="300" cy="250" r="150" fill="#E8B64C" opacity=".15"/>
-  <g fill="#F6E8C8" opacity=".85"><ellipse cx="300" cy="470" rx="180" ry="60"/><ellipse cx="300" cy="470" rx="120" ry="40" fill="#E4D2A8"/></g>
+  <defs><linearGradient id="ppf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1E130C" stop-opacity=".28"/><stop offset=".55" stop-color="#1E130C" stop-opacity=".55"/><stop offset="1" stop-color="#1E130C" stop-opacity=".93"/></linearGradient></defs>
+  <image href="${img}" x="0" y="0" width="600" height="760" preserveAspectRatio="xMidYMid slice"/>
+  <rect width="600" height="760" fill="url(#ppf)"/>
   <text x="300" y="120" text-anchor="middle" fill="#F6E8C8" font-family="Georgia,serif" font-size="21" letter-spacing="6">HEARTH &amp; HAND</text>
   <text x="300" y="600" text-anchor="middle" fill="#FFF6E8" font-family="Georgia,serif" font-size="34" font-weight="bold"><tspan x="300" dy="0">${esc(cap.split(':')[0])}</tspan>${cap.includes(':')?`<tspan x="300" dy="42" font-size="26" font-style="italic" fill="#E8B64C">${esc(cap.split(':')[1].trim())}</tspan>`:''}</text>
-  <text x="300" y="700" text-anchor="middle" fill="#C9B48C" font-family="Georgia,serif" font-size="19">${esc(g.slot)} · ${g.price?'$'+g.price:''} · ${esc((g.loc||'').split(',')[0])}</text>
+  <text x="300" y="700" text-anchor="middle" fill="#E8DCC2" font-family="Georgia,serif" font-size="19">${esc(g.slot)} · ${g.price?'$'+g.price:''} · ${esc((g.loc||'').split(',')[0])}</text>
   </svg>`;
 }
 function bindHost(){
@@ -712,7 +722,7 @@ function bindHost(){
   on('hEdit',()=>{HOST.step=2; rerender();});
   on('hPublish',()=>{ if(!HOST.gen) return;
     const g=HOST.gen;
-    WORKSHOPS.unshift({id:'host-'+Date.now(), cat:HOST.cat, motif:g.motif, title:g.title, host:'You', hostSince:'2026',
+    WORKSHOPS.unshift({id:'host-'+Date.now(), cat:HOST.cat, motif:g.motif, img:(MOTIF_IMG[g.motif]||'images/pottery-mug.jpg'), title:g.title, host:'You', hostSince:'2026',
       hostBlurb:'Your brand-new studio — welcome aboard!', area:(g.loc.split(',')[0]||'Your neighborhood'), address:g.loc||'TBD',
       dist:0.4, price:g.price, dur:g.dur, rating:5.0, rc:1, tags:['new'], months:['oct','nov'], isNew:true,
       desc:g.desc, included:g.inc, slots:[{d:'Sat, Oct 18',t:'1:00 PM',left:+g.seats||8}],
@@ -741,7 +751,7 @@ function vFeed(){
     ${FEED.map((p,i)=>{ const w=WORKSHOPS.find(x=>x.id===p.w); return `
     <article class="post ${tilt(i)}">
       <div class="post-head">${avatar(p.n)}<div><div class="nm">${esc(p.n)}</div><div class="sub">did <b>${esc(w?w.title.split(':')[0]:p.tag)}</b> · ${p.when}</div></div></div>
-      <div class="post-art grain">${scene(p.m, p.n+'’s photo')}</div>
+      <div class="post-art grain">${w?photo(w, p.n+'’s photo from '+w.title):scene(p.m,p.n)}</div>
       <div class="post-body"><div class="stars">${stars(p.s)}</div><p>${esc(p.t)}</p></div>
       <div class="post-foot"><button class="likebtn" data-like="${i}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20.5C7 16.5 3 13.2 3 9.3 3 6.4 5.2 4.5 7.7 4.5c1.7 0 3.3.9 4.3 2.4 1-1.5 2.6-2.4 4.3-2.4 2.5 0 4.7 1.9 4.7 4.8 0 3.9-4 7.2-9 11.2z"/></svg><span>${p.likes}</span></button>
       ${w?`<a href="#/w/${w.id}" data-go="#/w/${w.id}" style="font-size:13px;font-weight:600">Book this workshop →</a>`:''}</div>
@@ -785,7 +795,7 @@ function sunnyReply(q){
   return cards(WORKSHOPS.slice().sort((a,b)=>b.rating*b.rc-a.rating*a.rc).slice(0,3),`Hmm, let me read between the lines… 🔍 Based on what&rsquo;s loved right now, these three are can&rsquo;t-miss. Or try me with something like <i>&ldquo;cozy and under $50&rdquo;</i>.`);
 }
 function miniCards(list){
-  return `<div class="mini">${list.map(w=>`<a class="mini-card" data-go="#/w/${w.id}" href="#/w/${w.id}"><span class="th">${scene(w.motif,w.title)}</span><span><span class="mt">${esc(w.title)}</span><span class="ms" style="display:block">${money(w.price)} · ${w.dur} · ${w.dist} mi · ★${w.rating}</span></span></a>`).join('')}</div>`;
+  return `<div class="mini">${list.map(w=>`<a class="mini-card" data-go="#/w/${w.id}" href="#/w/${w.id}"><span class="th">${photo(w)}</span><span><span class="mt">${esc(w.title)}</span><span class="ms" style="display:block">${money(w.price)} · ${w.dur} · ${w.dist} mi · ★${w.rating}</span></span></a>`).join('')}</div>`;
 }
 function vSunny(){
   return `
@@ -823,7 +833,7 @@ function vCalendar(){
   return `
   <div class="topbar"><div class="topbar-in"><div class="topbar-title">Seasonal calendar</div></div></div>
   <div class="monthtabs">${Object.entries(SEASONS).map(([k,v])=>`<button class="monthtab${k===CALM?' on':''}" data-m="${k}">${v.name}</button>`).join('')}</div>
-  <div class="cal-hero grain">${scene(se.motif,se.theme)}<div class="txt"><h2 class="serif">${esc(se.theme)}</h2><p>${esc(se.sub)}</p></div></div>
+  <div class="cal-hero grain"><img src="${se.img}" alt="${esc(se.theme)}" loading="lazy"><div class="txt"><h2 class="serif">${esc(se.theme)}</h2><p>${esc(se.sub)}</p></div></div>
   <div class="cal-day"><div class="dlabel">Seasonal workshops · ${list.length}</div>
     <div class="cards">${list.map(wcard).join('')}</div></div>
   <div class="foot-note">Seasons change, so does the calendar.<br>Winter Magic drops December 1st ❄️</div>`;
