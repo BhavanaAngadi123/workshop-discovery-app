@@ -1,5 +1,7 @@
 # Workshop Discovery
 
+> **🖱️ Clickable prototype:** [bhavanaangadi123.github.io/workshop-discovery-app](https://bhavanaangadi123.github.io/workshop-discovery-app/) — the full app concept as a static mockup (Discover, booking flow, host studio, community feed, Sunny AI concierge, seasonal calendar). Open `index.html` at the repo root. The production Java backend lives in `src/`.
+
 A full-stack Java platform for discovering and booking local hands-on workshops —
 pottery, pasta-making, gardening, knitting, chocolate-making, dance, seasonal
 activities (pumpkin picking, spring garden tours) and more.
