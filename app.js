@@ -396,7 +396,7 @@ function vDiscover(){
   const hour = new Date().getHours();
   const greet = hour<12?'Good morning':hour<17?'Good afternoon':'Good evening';
   return `
-  <div class="topbar"><div class="topbar-in">
+  <div class="topbar brandbar"><div class="topbar-in">
     <div class="brandmark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFF6E8" stroke-width="2"><path d="M12 21c-5 0-8-3-8-8 0-4 3-6 5-8-1 3 0 5 3 5s4-2 3-5c2 2 5 4 5 8 0 5-3 8-8 8z"/><path d="M12 21v-6"/></svg></div>
     <div><div class="brandname">Hearth <em>&</em> Hand</div><div class="tagline">Workshops near you</div></div>
   </div></div>
@@ -413,7 +413,7 @@ function vDiscover(){
       <span class="hand" style="font-size:14px;color:var(--muted)">feeling lucky?</span></div>
   </div>
   <div class="torn" aria-hidden="true"><svg viewBox="0 0 432 26" preserveAspectRatio="none"><path d="M0 26 L0 14 L18 20 L36 10 L54 18 L72 8 L90 18 L108 10 L126 19 L144 9 L162 18 L180 10 L198 19 L216 9 L234 18 L252 10 L270 19 L288 9 L306 18 L324 10 L342 19 L360 9 L378 18 L396 10 L414 19 L432 12 L432 26 Z" fill="#F2A413"/></svg></div>
-  <div class="pad" style="padding-top:14px">
+  <div class="pad searchrow" style="padding-top:14px">
     <div class="searchbar"><span style="color:var(--faint);font-size:17px">⌕</span>
       <input id="q" type="search" placeholder="Try &quot;pottery&quot;, &quot;pasta&quot;, &quot;date night&quot;&hellip;" value="${esc(F.q)}" aria-label="Search workshops"></div>
     <div class="filters">
